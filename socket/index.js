@@ -35,8 +35,6 @@ socketNsp.on('connection', (socket) => {
   })
 
   socket.on('shoping', (order) => {
-      console.log(associations);
-      console.log(io.sockets.connected);
       io.sockets.connected[associations[0].socketId.split("#")[1]].emit('newOrder',order);
     socket.emit('newOrder',order);
   });
